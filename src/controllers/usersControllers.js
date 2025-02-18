@@ -31,6 +31,11 @@ const router = {
         const user = lista.updateUser(id, { name, email, age });
         res.json(user);
     },
+    deleteUser: (req, res) => {
+        const { id } = req.params;
+        lista.deleteUser(id);
+        res.json({message: 'Usuário deletado com sucesso'});
+    }
 }
 
 module.exports = router;

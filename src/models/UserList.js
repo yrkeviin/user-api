@@ -20,6 +20,9 @@ class UserList {
         Object.assign(user, updateData);
         res.json({message: 'User updated successfully', user});
     }
+    deleteUser (id) {
+        this.users = this.users.filter(user => user.id != id);
+    }
 }
 
 module.exports = UserList;
