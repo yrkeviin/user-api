@@ -25,6 +25,12 @@ const router = {
         }
         res.json(user);
     },
+    updateUser: (req, res) => {
+        const { id } = req.params;
+        const { name, email, age } = req.body;
+        const user = lista.updateUser(id, { name, email, age });
+        res.json(user);
+    },
 }
 
 module.exports = router;

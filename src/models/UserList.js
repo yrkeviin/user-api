@@ -15,6 +15,11 @@ class UserList {
         }
         return user;
     }
+    updateUser (id, updateData) {
+        const user = this.getUserById(id);
+        Object.assign(user, updateData);
+        res.json({message: 'User updated successfully', user});
+    }
 }
 
 module.exports = UserList;
