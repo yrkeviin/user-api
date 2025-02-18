@@ -16,7 +16,15 @@ const router = {
         const user = new User(name, email, age);
         lista.addUser(user);
         res.status(201).json({message: 'Usuário criado com sucesso!', user});
-    }
+    },
+    userById: (req, res) => {
+        const { id } = req.params;
+        const user = lista.getUserById(id);
+        if (!user) {
+            return res.status(404).json({ message: 'Usuário não encontrado' });
+        }
+        res.json(user);
+    },
 }
 
 module.exports = router;
