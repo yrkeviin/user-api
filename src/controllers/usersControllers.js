@@ -9,7 +9,8 @@ lista.addUser(new User('Trixie', 'trixie@gmail.com', 18));
 
 const router = {
     getAllUsers: (req, res) => {
-        res.json(lista.getAllUsers());
+        const users = lista.getAllUsers();
+        res.json(users);
     },
     addUser: (req, res) => {
         const { name, email, age } = req.body;
@@ -29,7 +30,7 @@ const router = {
         const { id } = req.params;
         const { name, email, age } = req.body;
         const user = lista.updateUser(id, { name, email, age });
-        res.json(user);
+        res.json({message: 'Usuário atualizado com sucesso', user});
     },
     deleteUser: (req, res) => {
         const { id } = req.params;

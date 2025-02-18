@@ -15,10 +15,10 @@ class UserList {
         }
         return user;
     }
-    updateUser (id, updateData) {
+    updateUser(id, updateData) {
         const user = this.getUserById(id);
         Object.assign(user, updateData);
-        res.json({message: 'User updated successfully', user});
+        return user;
     }
     deleteUser (id) {
         this.users = this.users.filter(user => user.id != id);
