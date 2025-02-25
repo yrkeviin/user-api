@@ -40,3 +40,5 @@ const router = {
         res.json({message: 'Post deletado com sucesso'});
     }
 }
+
+module.exports = router;
