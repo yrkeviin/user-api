@@ -10,6 +10,11 @@ lista.addPost(new Post('2', 40, 20, 7, 'Post 4'));
 lista.addPost(new Post('1', 50, 25, 9, 'Post 5'));
 
 const router = {
+    getPostByUser: (req, res) => {
+        const { id } = req.params;
+        const posts = lista.getPostByUser(id);
+        res.json(posts);
+    },
     getAllPosts: (req, res) => {
         const posts = lista.getAllPosts();
         res.json(posts);

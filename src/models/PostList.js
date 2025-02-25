@@ -1,26 +1,31 @@
 class PostList {
-    constructor() {
+    constructor () {
         this.posts = [];
     }
-    getAllPosts() {
+    getPostByUser (idUser) {
+        return this.posts.filter(post => post.idUser == idUser);
+    }
+    getAllPosts () {
         return this.posts;
     }
-    addPost(post) {
+    addPost (post) {
         this.posts.push(post);
     }
-    getPostById(id) {
+    getPostById (id) {
         const post = this.posts.find(post => post.id == id);
         if (!post) {
             throw new Error('Post not found');
         }
         return post;
     }
-    updatePost(id, updateData) {
+    updatePost (id, updateData) {
         const post = this.getPostById(id);
         Object.assign(post, updateData);
         return post;
     }
-    deletePost(id) {
+    deletePost (id) {
         this.posts = this.posts.filter(post => post.id != id);
     }
 }
+
+module.exports = PostList;
