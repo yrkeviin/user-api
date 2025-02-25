@@ -15,4 +15,12 @@ class PostList {
         }
         return post;
     }
+    updatePost(id, updateData) {
+        const post = this.getPostById(id);
+        Object.assign(post, updateData);
+        return post;
+    }
+    deletePost(id) {
+        this.posts = this.posts.filter(post => post.id != id);
+    }
 }
